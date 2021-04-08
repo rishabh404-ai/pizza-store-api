@@ -1,6 +1,6 @@
 
 from django.urls import path
-from mypizzaapp.views import MyPizzaStoreViewSet, PizzaSizeViewSet, PizzaToppingViewSet
+from mypizzaapp.views import MyPizzaStoreViewSet, PizzaSizeViewSet, PizzaToppingViewSet, PizzaSizeGenericView, PizzaSizeGenericViewDetail
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -10,6 +10,7 @@ router.register('pizzatopping',PizzaToppingViewSet)
 
 
 urlpatterns = [
-    
+    path('pizza-size/',PizzaSizeGenericView.as_view()),
+    path('pizza-size/<int:pk>/',PizzaSizeGenericViewDetail.as_view())
     
 ] + router.urls
